@@ -1,0 +1,21 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete student</title>
+</head>
+<body>
+<!--Các bạn có thể tìm hiểu thêm  phần này tại blogs: https://levunguyen.com,-->
+<!--blogs chuyên về lập trình và các kỹ năng mềm trong nghề lập trình-->
+<form th:action="@{/delete}" th:method="delete" th:object="${student}">
+    <input type="hidden" th:field="*{id}" />
+    <label>Name: </label>
+    <input type="text" th:field="*{name}" readonly/><br>
+    <label>Date of birth: </label>
+    <input type="text" th:field="*{dateOfBirth}" readonly/><br>
+    <input type="submit" value="Delete" />
+</form>
+</body>
+</html>

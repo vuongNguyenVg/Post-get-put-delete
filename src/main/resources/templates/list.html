@@ -1,0 +1,36 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List student</title>
+</head>
+<body>
+<!--Các bạn có thể tìm hiểu thêm  phần này tại blogs: https://levunguyen.com,-->
+<!--blogs chuyên về lập trình và các kỹ năng mềm trong nghề lập trình-->
+
+<a href="/create">Create student</a>
+<p style="color: green" th:text="${message}"></p>
+
+<h3>List student</h3>
+
+<table align="center" border="1">
+    <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Date of birth</th>
+        <th colspan="2">Action</th>
+    </tr>
+    <th:block th:each="student, iter : ${studentList}">
+        <tr>
+            <td th:text="${iter.index + 1}"></td>
+            <td><a th:href="@{/detail(id=${student.id})}" th:text="${student.name}"></a></td>
+            <td th:text="${student.dateOfBirth}"></td>
+            <td><a th:href="@{/update(id=${student.id})}">Update</a></td>
+            <td><a th:href="@{/delete(id=${student.id})}">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+
+</body>
+</html>
